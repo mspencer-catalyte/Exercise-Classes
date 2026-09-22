@@ -14,16 +14,28 @@ class Applicant:
         self.status = status
 
     def is_eligble_applicant(self): 
-        """Returns a boolean indicating if the 
-            applicant's age is greater than 18."""  
+        """ Takes an applicant as a parameter and returns a boolean that indicates whether or not the applicant's 
+                age is greater than 18.
+                
+        
+            Returns:
+                Bool: Indicates whether the applicant is greater than 18.
+            
+        """  
         if self.age >= 18:
             return True
         else:
             return False
 
     def is_active_applicant(self):
-        """Returns a boolean indicating if the program_status is 
-            exactly "Active"."""
+        """Takes an applicant as a parameter and returns
+                a boolean that indicates whether or not the applicant's 
+                program status is "Active
+            
+                Returns:
+                    Bool: Indicates whether the applicant is active in the program.
+            
+        """
         if self.status == "Active":
             return True
         else:
@@ -49,8 +61,8 @@ class ApplicantTracker:
 
 
     def filter_applicants_by_eligibility(self):
-        """ Prints and returns a list of only those Applicant objects that meet 
-            the age requirement."""
+        """Returns a list of eligible applicants.
+        """
         eligible_list = []
         for applicant in self.applicants:
             if applicant.is_eligble_applicant():
@@ -60,7 +72,7 @@ class ApplicantTracker:
         return eligible_list
 
     def filter_active_applicants(self):
-        """Prints and returns a list of Applicant objects 
+        """Returns a list of Applicant objects 
             currently in an "Active" status."""
         active_list = []
         for applicant in self.applicants:
