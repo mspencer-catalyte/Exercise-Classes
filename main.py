@@ -29,12 +29,6 @@ class Applicant:
         else:
             return False
 
-    def display_info(self):
-        dis
-        print(str(self.name)+ ", " + str(self.age)+ ", " + str(self.address)+ ", " +
-              str(self.street)+ ", " + str(self.city)+ ", " + str(self.state)+ ", " +
-              str(self.zip)+ ", " + str(self.p_status))
-
 applicant_01 = Applicant("Abigail Fontane", 44, "123", "Gibby St","Havalina", "NY", "94949", status[2])
 applicant_02 = Applicant("Bruce Lee", 52, "1343 ", "IDK Ave", "Greer", "MO", "96969",status[1])
 applicant_03 = Applicant("Charlie Foster", 13, "3343 ", "Hall Ln", "Nantucket", "NC", "84549", status[5])
@@ -48,16 +42,6 @@ applicant_10 = Applicant("Jackie Robinson", 32, "789", "Funt Dr", "Greenbelt", "
 
 applicant_fleet = [applicant_01,applicant_02,applicant_03,applicant_04,applicant_05,applicant_06,applicant_07,
               applicant_08,applicant_09,applicant_10]
-
-if applicant_01.is_eligble_applicant:
-    print(f"{applicant_01.name} is eligible.")
-else:
-    print(f"{applicant_01.name} is ineligible.")
-
-if applicant_01.is_active_applicant:
-    print(f"{applicant_01.name} is active.")
-else:
-    print(f"{applicant_01.name} is inactive.")
 
 class ApplicantTracker:
     def __init__(self, applicants):
@@ -73,9 +57,6 @@ class ApplicantTracker:
                 eligible_list.append(applicant.name)
             else:
                 pass
-        #return eligible_list
-        print("\nApplicants that are eligble for the program:")
-        print(*eligible_list, sep=", ")
         return eligible_list
 
     def filter_active_applicants(self):
@@ -87,8 +68,6 @@ class ApplicantTracker:
                 active_list.append(applicant.name)
             else:
                 pass
-        print("\nApplicants that are active in the program.")
-        print(*active_list, sep=", ")
         return active_list
 
     def report_completed_applicants(self):
@@ -100,12 +79,10 @@ class ApplicantTracker:
                 completed_list.append(applicant.name)
             else:
                 pass
-        print("\nApplicants that have completed the program.")
-        print(len(completed_list), sep=", ")
         return len(completed_list)
 
 app_tracker_test = ApplicantTracker(applicant_fleet)
 
-app_tracker_test.filter_applicants_by_eligibility()
-app_tracker_test.filter_active_applicants()
-app_tracker_test.report_completed_applicants()
+list_of_eligibles = app_tracker_test.filter_applicants_by_eligibility()
+list_of_actives = app_tracker_test.filter_active_applicants()
+number_of_completed = app_tracker_test.report_completed_applicants()
