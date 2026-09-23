@@ -13,7 +13,7 @@ class Applicant:
         self.zip = zip
         self.status = status
 
-    def is_eligble_applicant(self): 
+    def is_eligible_applicant(self): 
         """ Takes an applicant as a parameter and returns a boolean that indicates whether or not the applicant's 
                 age is greater than 18.
                 
@@ -22,7 +22,7 @@ class Applicant:
                 Bool: Indicates whether the applicant is greater than 18.
             
         """  
-        if self.age >= 18:
+        if self.age > 18:
             return True
         else:
             return False
@@ -65,7 +65,7 @@ class ApplicantTracker:
         """
         eligible_list = []
         for applicant in self.applicants:
-            if applicant.is_eligble_applicant():
+            if applicant.is_eligible_applicant():
                 eligible_list.append(applicant.name)
             else:
                 pass
@@ -98,3 +98,7 @@ app_tracker_test = ApplicantTracker(applicant_fleet)
 list_of_eligibles = app_tracker_test.filter_applicants_by_eligibility()
 list_of_actives = app_tracker_test.filter_active_applicants()
 number_of_completed = app_tracker_test.report_completed_applicants()
+
+print(*list_of_eligibles, sep = ", " )
+print(*list_of_actives, sep = ", ")
+print(number_of_completed)
