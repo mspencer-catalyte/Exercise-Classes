@@ -16,7 +16,6 @@ class Applicant:
         """ Takes an applicant as a parameter and returns a boolean that indicates whether or not the applicant's 
                 age is greater than 18.
                 
-        
             Returns:
                 Bool: Indicates whether the applicant is greater than 18.   
         """  
@@ -63,7 +62,7 @@ class ApplicantTracker:
             Filters out applicants whose age meet the over 18 requirement.
                             
             Returns:
-               list: A list of applicant objects   
+               list: A list of applicant objects meeting the age requirement  
                 
         """
         eligible_list = []
@@ -79,7 +78,7 @@ class ApplicantTracker:
             Filters out applicants that have a status of "Active" and adds them to a list.
         
             Returns:
-                list: A list of Applicant objects
+                list: A list of Applicant objects meeting the active filter
         """
         active_list = []
         for applicant in self.applicants:
@@ -94,7 +93,7 @@ class ApplicantTracker:
             Counts the number of applicants with a satus of completed.
             
             Returns:
-                list: A list of Applicant objects
+                list: A list of Applicant objects that have the cpmpleted status.
             
             """
         completed_list = []
