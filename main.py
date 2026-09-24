@@ -110,7 +110,3 @@ app_tracker_test = ApplicantTracker(applicant_fleet)
 list_of_eligibles = app_tracker_test.filter_applicants_by_eligibility()
 list_of_actives = app_tracker_test.filter_active_applicants()
 number_of_completed = app_tracker_test.report_completed_applicants()
-
-print(*list_of_eligibles, sep = ", " )
-print(*list_of_actives, sep = ", ")
-print(number_of_completed)
