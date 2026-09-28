@@ -3,21 +3,21 @@
 status = ['Applied', 'Accepted', 'Active', 'Completed', 'Dismissed', 'Rejected']
 
 class Applicant:
-    def __init__(self,name,age,street,city,state,zip,status):
+    def __init__(self,name,age,street,city,state,zip_code,program_status):
         self.name = name
         self.age = age
         self.street = street
         self.city = city
         self.state = state
-        self.zip = zip
-        self.status = status
+        self.zip_code = zip_code
+        self.program_status = program_status
 
     def is_eligible_applicant(self): 
         """ Takes an applicant as a parameter and returns a boolean that indicates whether or not the applicant's 
                 age is greater than 18.
                 
             Returns:
-                Bool: Indicates whether the applicant is greater than 18.   
+                Bool: Indicates whether the applicant is greater than 18 and this is eligible.
         """  
         if self.age > 18:
             return True
@@ -25,15 +25,13 @@ class Applicant:
             return False
 
     def is_active_applicant(self):
-        """Takes an applicant as a parameter and returns
-                a boolean that indicates whether or not the applicant's 
-                program status is "Active"
+        """Returns a boolean that indicates whether or not the applicant's program status is "Active"
             
-                Returns:
-                    Bool: Indicates whether the applicant is active in the program.
+            Returns:
+                Bool: Indicates whether the applicant is active in the program.
             
         """
-        if self.status == "Active":
+        if self.program_status == "Active":
             return True
         else:
             return False
@@ -47,7 +45,7 @@ applicant_06 = Applicant("Florence Machine", 19, "656 Calumm Dr", "Newark", "DE"
 applicant_07 = Applicant("Giana Ovaltine", 99, "7535 Not Way", "Wheaton", "MD", "02265", status[2])
 applicant_08 = Applicant("Rock T. Cazbah", 73, "244 Heart St", "Kensington", "CA", "84521", status[3])
 applicant_09 = Applicant("Imogen Heap", 21, "782 Boop Pl", "Haplern", "FL", "59643", status[4])
-applicant_10 = Applicant("Jackie Robinson", 32, "789 Funct Dr", "Greenbelt", "GA", "12548", status[1])
+applicant_10 = Applicant("Jackie Robinson", 32, "789 Funct Dr", "Greenbelt", "GA", "12548", status[0])
 
 applicant_fleet = [applicant_01,applicant_02,applicant_03,applicant_04,applicant_05,applicant_06,applicant_07,
               applicant_08,applicant_09,applicant_10]
@@ -68,7 +66,7 @@ class ApplicantTracker:
         eligible_list = []
         for applicant in self.applicants:
             if applicant.is_eligible_applicant():
-                eligible_list.append(applicant.name)
+                eligible_list.append(applicant)
             else:
                 pass
         return eligible_list
@@ -83,23 +81,23 @@ class ApplicantTracker:
         active_list = []
         for applicant in self.applicants:
             if applicant.is_active_applicant():
-                active_list.append(applicant.name)
+                active_list.append(applicant)
             else:
                 pass
         return active_list
 
     def report_completed_applicants(self):
         """
-            Counts the number of applicants with a satus of completed.
+            Counts the number of applicants with a status of completed.
             
             Returns:
-                list: A list of Applicant objects that have the cpmpleted status.
+                int: Returns the number of applicants that have the completed status.
             
             """
         completed_list = []
         for applicant in self.applicants:
-            if applicant.status == "Completed":
-                completed_list.append(applicant.name)
+            if applicant.program_status == "Completed":
+                completed_list.append(applicant)
             else:
                 pass
         return len(completed_list)
