@@ -67,8 +67,6 @@ class ApplicantTracker:
         for applicant in self.applicants:
             if applicant.is_eligible_applicant():
                 eligible_list.append(applicant)
-            else:
-                pass
         return eligible_list
 
     def filter_active_applicants(self):
@@ -82,8 +80,6 @@ class ApplicantTracker:
         for applicant in self.applicants:
             if applicant.is_active_applicant():
                 active_list.append(applicant)
-            else:
-                pass
         return active_list
 
     def report_completed_applicants(self):
@@ -94,13 +90,11 @@ class ApplicantTracker:
                 int: Returns the number of applicants that have the completed status.
             
             """
-        completed_list = []
+        counter= 0
         for applicant in self.applicants:
             if applicant.program_status == "Completed":
-                completed_list.append(applicant)
-            else:
-                pass
-        return len(completed_list)
+                counter += 1
+        return counter
 
 app_tracker_test = ApplicantTracker(applicant_fleet)
 
